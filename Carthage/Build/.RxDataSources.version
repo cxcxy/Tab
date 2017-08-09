@@ -1,0 +1,9 @@
+{
+  "commitish" : "1.0.4",
+  "iOS" : [
+    {
+      "hash" : "4f94292c21ed23718f0801bc55cf477f0b52f28fa537af400f80ecef23d265bb",
+      "name" : "RxDataSources"
+    }
+  ]
+}

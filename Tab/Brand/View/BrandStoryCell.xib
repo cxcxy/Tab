@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="261" id="KGk-i7-Jjw" customClass="BrandStoryCell" customModule="Tab" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="“原木工艺的行家们”" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0a-e4-dxy">
+                        <rect key="frame" x="15" y="40" width="345" height="27"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Idp-dI-I63">
+                        <rect key="frame" x="101" y="92" width="172" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="对于探索产品工艺的" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohJ-Fj-ag0">
+                                <rect key="frame" x="0.0" y="5" width="147" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="countryflags" translatesAutoresizingMaskIntoConstraints="NO" id="KoZ-Jb-e62">
+                                <rect key="frame" x="155" y="10" width="17" height="11"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="17" id="lV4-lL-h5x"/>
+                                    <constraint firstAttribute="height" constant="11" id="p6s-q6-BW4"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Hra-te-toi"/>
+                        </constraints>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="精选推荐" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKm-IP-bYT">
+                        <rect key="frame" x="15" y="10" width="345" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="8Jn-5e-KSO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.75686274509999996" green="0.75294117650000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Je-dD-qyz">
+                        <rect key="frame" x="0.0" y="127" width="375" height="131"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gn6-zA-jIS" customClass="TYAttributedLabel">
+                                <rect key="frame" x="15" y="0.0" width="345" height="142"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="141.5" id="q9Y-Xk-b8K"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4g9-fu-1bQ" customClass="BrandBottomLookMoreView" customModule="Tab" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49" width="375" height="82"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="Tgk-9W-LVq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gn6-zA-jIS" firstAttribute="leading" secondItem="5Je-dD-qyz" secondAttribute="leading" constant="15" id="51a-gi-Tl3"/>
+                            <constraint firstItem="4g9-fu-1bQ" firstAttribute="leading" secondItem="5Je-dD-qyz" secondAttribute="leading" id="8he-m4-4Nu"/>
+                            <constraint firstItem="Gn6-zA-jIS" firstAttribute="top" secondItem="5Je-dD-qyz" secondAttribute="top" id="PK3-aD-Fqa"/>
+                            <constraint firstAttribute="trailing" secondItem="4g9-fu-1bQ" secondAttribute="trailing" id="T0i-po-X3h"/>
+                            <constraint firstAttribute="height" priority="750" constant="141.5" id="WdD-BQ-l7X"/>
+                            <constraint firstAttribute="trailing" secondItem="Gn6-zA-jIS" secondAttribute="trailing" constant="15" id="ZXo-O0-LRG"/>
+                            <constraint firstAttribute="bottom" secondItem="4g9-fu-1bQ" secondAttribute="bottom" priority="750" id="ZpY-LD-vL2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5Je-dD-qyz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="1Q5-Yd-p6f"/>
+                    <constraint firstAttribute="trailing" secondItem="p0a-e4-dxy" secondAttribute="trailing" constant="15" id="2IU-4n-dhi"/>
+                    <constraint firstItem="p0a-e4-dxy" firstAttribute="top" secondItem="UKm-IP-bYT" secondAttribute="bottom" constant="10" id="5OZ-gN-G3h"/>
+                    <constraint firstItem="UKm-IP-bYT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="BQr-XG-wC6"/>
+                    <constraint firstItem="Idp-dI-I63" firstAttribute="top" secondItem="p0a-e4-dxy" secondAttribute="bottom" constant="25" id="HuE-nF-G9S"/>
+                    <constraint firstItem="p0a-e4-dxy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Llz-Ve-Xj9"/>
+                    <constraint firstAttribute="bottom" secondItem="5Je-dD-qyz" secondAttribute="bottom" constant="1" id="Pj8-PM-r3Y"/>
+                    <constraint firstAttribute="trailing" secondItem="5Je-dD-qyz" secondAttribute="trailing" id="ZS4-93-Zn0"/>
+                    <constraint firstItem="UKm-IP-bYT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="fIL-NP-LWB"/>
+                    <constraint firstAttribute="trailing" secondItem="UKm-IP-bYT" secondAttribute="trailing" constant="15" id="sN1-aX-ziQ"/>
+                    <constraint firstItem="5Je-dD-qyz" firstAttribute="top" secondItem="Idp-dI-I63" secondAttribute="bottom" constant="5" id="ujQ-Hd-ssT"/>
+                    <constraint firstItem="Idp-dI-I63" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="yyr-0i-G1h"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bottomView" destination="4g9-fu-1bQ" id="HAo-8g-02V"/>
+                <outlet property="heightTVConstraint" destination="q9Y-Xk-b8K" id="Hmf-D6-J3o"/>
+                <outlet property="htightViewConstraint" destination="WdD-BQ-l7X" id="idu-he-hiw"/>
+                <outlet property="label_TY" destination="Gn6-zA-jIS" id="AR9-mT-WeW"/>
+            </connections>
+            <point key="canvasLocation" x="-63.5" y="-98.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="countryflags" width="16" height="16"/>
+    </resources>
+</document>
