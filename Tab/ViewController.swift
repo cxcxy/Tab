@@ -36,6 +36,8 @@ private extension UILabel {
 class ViewController: UIViewController {
     let disposeBag = DisposeBag()
   
+    @IBOutlet weak var bottomView: BrandBottomLookMoreView!
+    @IBOutlet weak var btnTestOne: UIButton!
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var tfName: UITextField!
     override func viewDidLoad() {
@@ -52,6 +54,37 @@ class ViewController: UIViewController {
 //        observable_scan()
 //        observable_filter()
 //        observable_elementAt()
+        
+        
+//        btnTestOne.zhw_ignoreEvent = false
+        self.btnTestOne.acceptEventInterval = 3.0
+        self.btnTestOne.rx.controlEvent(UIControlEvents.touchUpInside).subscribe(onNext: { [unowned self] in
+            print("11111")
+        }).addDisposableTo(disposeBag)
+        
+//       _ = NotificationCenter.default.rx.notification(Notification.Name("kNotificationTestName")).takeUntil(self.rx.deallocated).subscribe(onNext: { (value) in print(value) })
+        
+       
+        
+//         NotificationCenter.default.rx.notification(Notification.Name(rawValue: "hahaha"), object: self).subscribe(onNext: { (sender) in
+//            print(sender)
+//         }).addDisposableTo(disposeBag)
+//        
+        
+//            NotificationCenter.default.addObserver(self, selector:#selector(testNotifation), name:NSNotification.Name(rawValue: "hahaha"), object:nil)
+        
+//        NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: "hahaha"), object: self, queue: nil) { (sender) in
+//             print("heiheiheihei")
+//        }
+//        
+        
+        _ = NotificationCenter.default.rx.notification(Notification.Name("kNotificationTestName")).takeUntil(self.rx.deallocated).subscribe(onNext: { (value) in
+            print(value)
+            print("2222")
+        })
+        
+ 
+        
         observable_take()
         let viewModel = RegisterViewModel()
         
@@ -69,17 +102,33 @@ class ViewController: UIViewController {
         colorChange()
 //        rx_flatMap()
         
-    }
-    func colorChange()  {
-//        CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-//        gradientLayer.colors = @[(__bridge id)[UIColor redColor].CGColor, (__bridge id)[UIColor yellowColor].CGColor, (__bridge id)[UIColor blueColor].CGColor];
-//        gradientLayer.locations = @[@0.3, @0.5, @1.0];
-//        gradientLayer.startPoint = CGPointMake(0, 0);
-//        gradientLayer.endPoint = CGPointMake(1.0, 0);
-//        gradientLayer.frame = CGRectMake(0, 100, 300, 100);
-//        [self.view.layer addSublayer:gradientLayer];
 
         
+        textBreak()
+        
+//        let list = [1,2,3,4,5,6,7,8,9,10]
+//        
+//        let sum = list.reduce(0,{$0 + $1})
+//        print(sum)
+    }
+    func testNotifation()  {
+        print("heiheiheihei")
+    }
+    func textBreak()  {
+        let a = 0
+        switch a {
+        case 0:
+            guard a == 0 else {
+                break
+            }
+            print("111")
+        default:
+            break
+        }
+         print("222")
+    }
+    func colorChange()  {
+
         let gradientLayer  = CAGradientLayer()
         gradientLayer.colors = [UIColor.white.cgColor]
         gradientLayer.locations = [0.0,1.0]
@@ -88,14 +137,27 @@ class ViewController: UIViewController {
         gradientLayer.frame = lbName.bounds
         self.lbName.layer.addSublayer(gradientLayer)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        self.bottomView.view.frame = self.bottomView.bounds
+    }
     @IBAction func clickAction(_ sender: Any) {
-//        let vc = UIStoryboard.initialViewController("Main", identifier:String(describing: DetailViewController.self)) as! DetailViewController
-//
+        let vc = UIStoryboard.initialViewController("Main", identifier:String(describing: DetailViewController.self)) as! DetailViewController
+
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+//        let vc = UIStoryboard.initialViewController("Main", identifier:String(describing: TextKitVC.self)) as! TextKitVC
+//    
 //        self.navigationController?.pushViewController(vc, animated: true)
         
-        let vc = UIStoryboard.initialViewController("Main", identifier:String(describing: TextKitVC.self)) as! TextKitVC
-    
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+//        print("点击了")
+//        UIView.animate(withDuration: 3, animations: {
+//            
+//        }) { (finished) in
+//            
+//        }
     }
   
     @IBAction func clickMoreAction(_ sender: Any) {
@@ -103,6 +165,7 @@ class ViewController: UIViewController {
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

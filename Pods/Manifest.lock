@@ -1,6 +1,8 @@
 PODS:
   - Alamofire (4.4.0)
+  - Aspects (1.4.1)
   - EZSwiftExtensions (1.10)
+  - Kingfisher (3.10.4)
   - MJRefresh (3.1.12)
   - Moya/Core (8.0.5):
     - Alamofire (~> 4.1)
@@ -8,26 +10,37 @@ PODS:
   - Moya/RxSwift (8.0.5):
     - Moya/Core
     - RxSwift (~> 3.0)
+  - NSObject+Rx (2.3.0):
+    - RxSwift (~> 3.0)
   - ObjectMapper (2.2.7)
   - Result (3.2.3)
   - RxSwift (3.6.1)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire
+  - Aspects
   - EZSwiftExtensions
+  - Kingfisher
   - MJRefresh
   - Moya/RxSwift
+  - NSObject+Rx
   - ObjectMapper
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   EZSwiftExtensions: 172160bfb3635161c8b833d9111961ff3e6f517d
+  Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
+  NSObject+Rx: 38170f84b948152c05c57260cb853e387a5519d1
   ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: f725a3ac83ca424f974ee69c632147aa6d79f78d
+PODFILE CHECKSUM: 9eff43ea35cd584e90dcf703c67895c1e524e244
 
 COCOAPODS: 1.2.0.beta.3

@@ -51,11 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let lb = YYFPSLabel()
-        lb.frame = CGRect.init(x: MGScreenWidth/2, y: MGScreenHeight/2, width: 100, height: 100)
-        lb.backgroundColor = UIColor.red
-    
-        self.window?.addSubview(lb)
+//        let lb = YYFPSLabel()
+//        lb.frame = CGRect.init(x: MGScreenWidth/2, y: MGScreenHeight/2, width: 100, height: 100)
+////        lb.backgroundColor = UIColor.red
+//    
+//        self.window?.addSubview(lb)
         return true
     }
 

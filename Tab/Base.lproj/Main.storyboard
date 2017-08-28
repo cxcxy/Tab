@@ -21,13 +21,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uih-et-FTO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uih-et-FTO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Uih-et-FTO" secondAttribute="trailing" id="Hnp-Ki-jzC"/>
+                            <constraint firstItem="Uih-et-FTO" firstAttribute="top" secondItem="zPu-87-D67" secondAttribute="top" id="KEU-Ze-oai"/>
+                            <constraint firstItem="Lvu-QE-au4" firstAttribute="top" secondItem="Uih-et-FTO" secondAttribute="bottom" id="XCY-Fj-TWt"/>
+                            <constraint firstItem="Uih-et-FTO" firstAttribute="leading" secondItem="zPu-87-D67" secondAttribute="leading" id="YMs-ch-v1k"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Uih-et-FTO" id="Jge-L8-5x5"/>
@@ -119,6 +124,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="z8R-lB-nBB"/>
                     <connections>
+                        <outlet property="bottomView" destination="GpY-Jy-8K9" id="M7v-jk-8r4"/>
+                        <outlet property="btnTestOne" destination="JPv-LL-BB1" id="mkD-fd-Y2r"/>
                         <outlet property="lbName" destination="WSI-1p-I6v" id="RDs-fN-ZZa"/>
                         <outlet property="tfName" destination="kpZ-S4-K2c" id="JOk-NS-hQq"/>
                     </connections>
@@ -138,8 +145,27 @@
                     <view key="view" contentMode="scaleToFill" id="lM7-gd-GhQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bHz-q8-lLw">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="dxp-L4-73r" id="E9n-Ey-jLe"/>
+                                    <outlet property="delegate" destination="dxp-L4-73r" id="qXU-y5-EeT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bHz-q8-lLw" secondAttribute="trailing" id="EQ9-oN-eg2"/>
+                            <constraint firstItem="XUP-XX-dvg" firstAttribute="top" secondItem="bHz-q8-lLw" secondAttribute="bottom" id="JN1-wt-Bi9"/>
+                            <constraint firstItem="bHz-q8-lLw" firstAttribute="top" secondItem="P9k-fJ-wY1" secondAttribute="bottom" id="gz1-dU-NG6"/>
+                            <constraint firstItem="bHz-q8-lLw" firstAttribute="leading" secondItem="lM7-gd-GhQ" secondAttribute="leading" id="pZi-BQ-dWY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="feedTableView" destination="bHz-q8-lLw" id="ooN-Tu-DuU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXX-2W-s01" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

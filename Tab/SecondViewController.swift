@@ -23,6 +23,39 @@ struct Module {
 //    let img2:String = ""
     
 }
+extension Int {
+    // 一行排两个，根据总数返回多少行
+    func getParityCellNumber() -> Int {
+        return  ((self % 2) == 0 ? (self / 2) : ((self / 2) + 1))
+    }
+    
+    func intToThousand() -> String {
+        if self >= 1000 {
+            let sum = Float(self)
+            let result:Float = Float(sum/1000)
+            
+            return String(format: "%.1fK", result)
+        }else {
+            return "\(self)"
+        }
+    }
+    public var w : CGFloat
+    {
+        let screen_w = UIScreen.main.bounds.width
+        let design_w = CGFloat(375)
+        let scale_x  = CGFloat(self) * screen_w / design_w
+        return scale_x
+    }
+    
+    public var h : CGFloat{
+        
+        let screen_h = UIScreen.main.bounds.height
+        let design_h = CGFloat(667)
+        let scale_y  = CGFloat(self) * screen_h / design_h
+        return scale_y
+    }
+
+}
 
 
 class SecondViewController: UIViewController {
@@ -49,10 +82,17 @@ class SecondViewController: UIViewController {
         self.tableView.rowHeight            = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight   = 60
         tableView.register(UINib.init(nibName: "WOWApplyAfterCell", bundle: Bundle.main), forCellReuseIdentifier: "WOWApplyAfterCell")
-        tableView.register(UINib.init(nibName: "TwoStyleCell", bundle: Bundle.main), forCellReuseIdentifier: "TwoStyleCell")
+        tableView.register(UINib.init(nibName: "WOWSelectUserCommentsCell", bundle: Bundle.main), forCellReuseIdentifier: "WOWSelectUserCommentsCell")
         tableView.register(UINib.init(nibName: "WOWBrandRecommendCell", bundle: Bundle.main), forCellReuseIdentifier: "WOWBrandRecommendCell")
         tableView.register(UINib.init(nibName: "BrandStoryCell", bundle: Bundle.main), forCellReuseIdentifier: "BrandStoryCell")
         
+        tableView.register(UINib.init(nibName: "Text_View_Cell", bundle: Bundle.main), forCellReuseIdentifier: "Text_View_Cell")
+        
+        tableView.register(UINib.init(nibName: "WOWTwoDesLbCell", bundle: Bundle.main), forCellReuseIdentifier: "WOWTwoDesLbCell")
+        
+        tableView.register(UINib.init(nibName: "WOWBrandGoodsCell", bundle: Bundle.main), forCellReuseIdentifier: "WOWBrandGoodsCell")
+        
+         tableView.register(UINib.init(nibName: "WOWTwoGoodsImgCell", bundle: Bundle.main), forCellReuseIdentifier: "WOWTwoGoodsImgCell")
         tableView.mj_footer = mj_footer
         tableView.mj_header = mj_header
         
@@ -70,27 +110,73 @@ class SecondViewController: UIViewController {
         self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
         self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
         
-        
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
         arr.asObservable().bind(to: tableView.rx.items(dataSource: dataSource)).addDisposableTo(disposeBag)
         
         dataSource.configureCell = { [unowned self](_ , tableView , indexPath , element) in
 
             
-//         if indexPath.section  != 0{
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "BrandStoryCell") as! BrandStoryCell
-//            
-//                cell.data = element
-//                return cell
-//            
-//         }else {
+//            if indexPath.section == 0 {
             
-                let cell = tableView.dequeueReusableCell(withIdentifier: "WOWBrandRecommendCell") as! WOWBrandRecommendCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "WOWTwoDesLbCell") as! WOWTwoDesLbCell
             
-//                let arr = ["1","2","3"]
-//                cell.hightConstraint.constant = CGFloat(arr.count * 127)
-//                cell.dataArr.value = arr
-
+            
+//                cell.dataArr.value =  ["1",
+//                                       "2",
+//                                       "3",
+//                                       "1",
+//                                       "2",
+//                                       "3"]
+//                let c = cell.dataArr.value.count.getParityCellNumber()
+//            
+//                cell.heightConstraint.constant = (CGFloat(c) * 180.h) + CGFloat((c - 1) * 15)
+//                cell.heightConstraint.constant = 100
+            
+//                cell.dataStoryArr = [
+//                    StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
+//                    StoryModel.init(contentType: 1, content: "还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开"),
+//                    StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
+//                    StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
+//                    StoryModel.init(contentType: 1, content: "我如果爱你——\r\n　　绝不像攀援的凌霄花，\r\n　　借你的高枝炫耀自己：\r\n　　我如果爱你——\r\n　　绝不学痴情的鸟儿，\r\n　　为绿荫重复单调的歌曲；\r\n　　也不止像泉源，\r\n　　常年送来清凉的慰籍；\r\n　　也不止像险峰，增加你的高度，衬托你的威仪。\r\n　　甚至日光。\r\n　　甚至春雨。\r\n　　不，这些都还不够！\r\n　　我必须是你近旁\r\n\r\n　　我们共享雾霭流岚、虹霓"),
+//                    StoryModel.init(contentType: 1, content: "你知道我一直很乖")]
+//                cell.delegate = self
                 return cell
+            
+            
+//         }
+//            else {
+            
+//                let cell = tableView.dequeueReusableCell(withIdentifier: "BrandHostCell") as! BrandHostCell
+            
+
+//
+//            cell.dataStoryArr = [
+//                                 StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
+//                                 StoryModel.init(contentType: 1, content: "还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开"),
+//                                 StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
+//                                 StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
+//                                 StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
+//                                 StoryModel.init(contentType: 1, content: "你知道我一直很乖")]
+//                return cell
 //            }
 
             
@@ -106,7 +192,7 @@ class SecondViewController: UIViewController {
             })
             .addDisposableTo( disposeBag)
         
-
+        
 
           // 点击事件
 //        tableView.rx.modelSelected(type(of: self.dataSource).Section.Item.self).subscribe { (model) in
@@ -145,15 +231,15 @@ class SecondViewController: UIViewController {
                 
                 let info = Mapper<ReturnInfo>().map(JSONString:json)
                 if let strongSelf = self {
-                    let arr = info?.data?.productVoList
-                    if strongSelf.pageIndex == 1 {
-                        strongSelf.dataArr.value.removeAll()
-                    }
-                    arr?.enumerated().forEach({
-                        strongSelf.dataArr.value.append(SectionModel.init(model: "0", items: [$1]))
-                    })
-                    strongSelf.mj_footer.endRefreshing()
-                    strongSelf.mj_header.endRefreshing()
+//                    let arr = info?.data?.productVoList
+//                    if strongSelf.pageIndex == 1 {
+//                        strongSelf.dataArr.value.removeAll()
+//                    }
+//                    arr?.enumerated().forEach({
+//                        strongSelf.dataArr.value.append(SectionModel.init(model: "0", items: [$1]))
+//                    })
+//                    strongSelf.mj_footer.endRefreshing()
+//                    strongSelf.mj_header.endRefreshing()
 
                 }
                 

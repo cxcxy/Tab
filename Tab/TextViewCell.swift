@@ -27,7 +27,7 @@ class TextViewCell: UITableViewCell {
     }
     @IBOutlet weak var btnClick: UIButton!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var label_TY: TYAttributedLabel!
+
     @IBOutlet weak var tv_view: UIView!
     @IBOutlet weak var bottomView: BrandBottomLookMoreView!
     @IBOutlet weak var bottom_mask: UIImageView!
@@ -73,33 +73,10 @@ class TextViewCell: UITableViewCell {
     }
     func configLabel(data:Module){
 
-        label_TY.text = ""
-        
-        if let img = data.img {
-            
-            self.appendImg(imgUrl: img)
-            
-        }
-        
-        if let des = data.des {
-            label_TY.appendText(des)
-        }
-        if let img1 = data.img1 {
-            self.appendImg(imgUrl: img1)
-        }
-        label_TY.paragraphSpacing = 50
-        label_TY.sizeToFit()
-      
-        self.heightAll = label_TY.bounds.size.height
-
+   
     }
     func appendImg(imgUrl:String)  {
-        let  itemHeight = WOWArrayAddStr.get_img_sizeNew(str: imgUrl, width: MGScreenWidth, defaule_size: .OneToOne)
-        let imageUr = TYImageStorage()
-        imageUr.imageURL = URL.init(string: imgUrl)
-        imageUr.imageAlignment  = TYImageAlignmentCenter
-        imageUr.size = CGSize.init(width: MGScreenWidth, height: itemHeight + 20)
-        label_TY.appendTextStorage(imageUr)
+        
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

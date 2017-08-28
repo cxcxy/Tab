@@ -5,6 +5,10 @@ target :Tab do
   	pod 'Alamofire'
 	pod 'MJRefresh'
 	pod 'ObjectMapper'
-    pod 'Moya/RxSwift'
-    pod 'EZSwiftExtensions'
+    	pod 'Moya/RxSwift'
+   	pod 'EZSwiftExtensions'
+	pod 'Kingfisher'
+	pod 'SwiftyJSON'
+	pod "Aspects"
+	pod 'NSObject+Rx'
 end

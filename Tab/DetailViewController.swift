@@ -12,19 +12,20 @@ import RxSwift
 import RxCocoa
 import Alamofire
 import ObjectMapper
-
+import NSObject_Rx
 
 
 class DetailViewController: UIViewController,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    
     let disposeBag = DisposeBag()
     
-    let dataSource  = RxTableViewSectionedReloadDataSource<SectionModel<String,RefundReason>>()
+    let dataSource  = RxTableViewSectionedReloadDataSource<SectionModel<String,WOWHotStyleModel>>()
 
     var pageIndex = 1
     
-    var dataArr = Variable<[RefundReason]>([])
+    var dataArr = Variable<[WOWHotStyleModel]>([])
     
     let viewModel  = GroupViewModel()
     
@@ -36,6 +37,10 @@ class DetailViewController: UIViewController,UITableViewDelegate {
     deinit {
         print("shifang")
     }
+    
+    
+//    let article = ArticleModel(id: 0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,33 +49,46 @@ class DetailViewController: UIViewController,UITableViewDelegate {
         tableView.estimatedRowHeight   = 60
         
         tableView.register(UINib.init(nibName: "WOWApplyAfterCell", bundle: Bundle.main), forCellReuseIdentifier: "WOWApplyAfterCell")
-             tableView.register(UINib.init(nibName: "TwoStyleCell", bundle: Bundle.main), forCellReuseIdentifier: "TwoStyleCell")
+        tableView.register(UINib.init(nibName: "TwoStyleCell", bundle: Bundle.main), forCellReuseIdentifier: "TwoStyleCell")
 //        tableView.register(Reusable.applyCell)
-
+        tableView.register(ReusableCell<TwoStyleCell>())
         
         tableView.mj_footer = mj_footer
 
 //        loadData(pageIndex)
         configTableView()
         
-        GroupModelData.shareInstance.getGroupModelData { (vm) in
-            vm.asObservable().subscribe({[unowned self]  (model) in
-                if let a = model.element {
-                    self.dataArr.value.append(contentsOf: a)
-                           self.mj_footer.endRefreshing()
-                }
-                
-            }).addDisposableTo(self.disposeBag)
-        }
+//        GroupModelData.shareInstance.getGroupModelData { (vm) in
+//            vm.asObservable().subscribe({[unowned self]  (model) in
+//                if let a = model.element {
+//                    self.dataArr.value.append(contentsOf: a)
+//                           self.mj_footer.endRefreshing()
+//                }
+//                
+//            }).addDisposableTo(self.disposeBag)
+//        }
+        let params:[String : Any] = [
+            "currentPage": pageIndex,
+            "pageSize": 10,
+            ]
         
-        loadData()
+        ArticleModel.shareInstance.getArticleListData(params as [String : AnyObject]).subscribe(onNext: { (modelArray) in
+            print(modelArray)
+            self.dataArr.value.append(contentsOf: modelArray)
+        }).addDisposableTo(rx_disposeBag)
         
         
+        ArticleModel.shareInstance.refresh.asObservable().subscribe(onNext: { (status) in
+            self.refreshStatus(status: status)
+        }).addDisposableTo(rx_disposeBag)
         
+//        Observable.combineLatest(refreshStatus())
         
+ NotificationCenter.default.post(name: Notification.Name(rawValue: "kNotificationTestName"), object: "testContent")
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "kNotificationTestName"), object: ["1":2])
+//        NotificationCenter.default.po
         
-        
-        
+//       
         
         
         
@@ -80,6 +98,15 @@ class DetailViewController: UIViewController,UITableViewDelegate {
 //        }.addDisposableTo(disposeBag)
     }
     
+    func refreshStatus(status:RefreshStatus)  {
+        switch status {
+        case .NoMoreData:
+            print("没有更多的数据了")
+        default:
+            break
+
+        }
+    }
     func loadData(_ currentPage: Int = 1)  {
 //        provider.request(.getNewsList)
         
@@ -89,16 +116,16 @@ class DetailViewController: UIViewController,UITableViewDelegate {
         ]
 //       subscribe on  和 subscribe onNext 区别在于： on - 里面接受 next 和 完成的回调， noNext 只接受 next的回调
         
-        self.viewModel.getGroups(params: params).subscribe(onNext: {[weak self] (info) in
-            let arr =  info.productVoList
-            if let strongSelf = self,let arr = arr {
-       
-                strongSelf.dataArr.value.append(contentsOf: arr)
-                 strongSelf.mj_footer.endRefreshing()
-        
-            }
-            
-        }).addDisposableTo(disposeBag)
+//        self.viewModel.getGroups(params: params).subscribe(onNext: {[weak self] (info) in
+//            let arr =  info.productVoList
+//            if let strongSelf = self,let arr = arr {
+//       
+//                strongSelf.dataArr.value.append(contentsOf: arr)
+//                 strongSelf.mj_footer.endRefreshing()
+//        
+//            }
+//            
+//        }).addDisposableTo(disposeBag)
         
 //        provider.request(.getGroupList(params: params )).subscribe { event in
 //            switch event {
@@ -205,10 +232,14 @@ class DetailViewController: UIViewController,UITableViewDelegate {
 
         dataArr.asObservable().bind(to: tableView.rx.items(cellIdentifier: "TwoStyleCell", cellType: TwoStyleCell.self)){ (row,elememt,cell) in
             
-            cell.lbTitle.text  = elememt.productImg!
+            cell.lbTitle.text  = elememt.columnName!
 //             cell.rightView.lb.text = elememt.title!
             
         }.disposed(by: disposeBag)
+        
+//        dataArr.asObservable().bind(to: tableView.rx.items())
+        
+        
           // 点击事件
         tableView.rx.modelSelected(RefundReason.self).subscribe { (model) in
             print(model.element?.title ?? "")

@@ -20,7 +20,21 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjg-42-uVT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="132.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="676-6B-dW9" customClass="lb_Des_Style" customModule="Tab" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="132.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="676-6B-dW9" secondAttribute="trailing" id="Jki-ve-ymQ"/>
+                            <constraint firstAttribute="bottom" secondItem="676-6B-dW9" secondAttribute="bottom" id="T7t-wE-26p"/>
+                            <constraint firstItem="676-6B-dW9" firstAttribute="leading" secondItem="tjg-42-uVT" secondAttribute="leading" id="mzs-dI-wdJ"/>
+                            <constraint firstItem="676-6B-dW9" firstAttribute="top" secondItem="tjg-42-uVT" secondAttribute="top" id="qBi-rz-4iW"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <constraints>

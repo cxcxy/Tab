@@ -81,7 +81,7 @@
                 <outlet property="hightConstraint" destination="OD1-Tu-gVq" id="Xcx-l4-1UH"/>
                 <outlet property="lbTitle" destination="sua-5i-AWS" id="P5K-ea-2hB"/>
             </connections>
-            <point key="canvasLocation" x="-1609" y="-152"/>
+            <point key="canvasLocation" x="-2217" y="-152"/>
         </tableViewCell>
     </objects>
 </document>

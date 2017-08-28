@@ -49,6 +49,7 @@ extension UITableView {
     
     // MARK: Cell
     
+    
     /// Registers a generic cell for use in creating new table cells.
     public func register<Cell: CellType>(_ cell: ReusableCell<Cell>) {
         if let nib = cell.nib {

@@ -68,7 +68,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="THf-YV-cmD" secondAttribute="bottom" id="32t-Ba-R13"/>
                 <constraint firstItem="YNq-Kz-0Ek" firstAttribute="leading" secondItem="LR1-ee-sYQ" secondAttribute="leading" id="6WR-QC-Z7I"/>
@@ -80,7 +80,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-606" y="-563"/>
+            <point key="canvasLocation" x="-1061" y="-567"/>
         </view>
     </objects>
     <resources>

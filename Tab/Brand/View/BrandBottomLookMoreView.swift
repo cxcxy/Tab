@@ -24,26 +24,47 @@ class BrandBottomLookMoreView: UIView {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+         self.setup()
+      
+//        self.view.frame = self.bounds
+//      
+//        //        self.view.updateConstraints()
+//        self.view.layoutSubviews()
+//        self.view.setNeedsLayout()
+//        self.view.layoutIfNeeded()
+//        
+//        self.view.setNeedsUpdateConstraints()
         
     }
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         self.view.frame = self.bounds
-        self.view.updateConstraints()
+        print(self.bounds)
+        print(MGScreenWidth)
+        self.img_mask.size.width = self.bounds.size.width
+//        self.view.updateConstraints()
+        self.view.layoutSubviews()
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
+        self.view.setNeedsUpdateConstraints()
+        
+        self.view.superview?.layoutIfNeeded()
         
     }
+    
     func setup() {
 //        let view = UINib.init
         let v = Bundle.main.loadNibNamed("BrandBottomLookMoreView", owner: self, options: nil)?.last as! UIView
-          v.frame = self.bounds
+//          v.frame = self.bounds
         self.addSubview(v)
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.setup()
+        
     }
+    
+    
 //    required init?(coder aDecoder: NSCoder) {
 //        
 //    }

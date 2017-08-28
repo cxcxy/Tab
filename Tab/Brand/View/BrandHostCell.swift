@@ -11,7 +11,7 @@ import UIKit
 class BrandHostCell: UITableViewCell {
 
     @IBOutlet weak var lbTitle: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
+//    @IBOutlet weak var collectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
