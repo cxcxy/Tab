@@ -7,11 +7,17 @@
 //
 
 import UIKit
-
+protocol SVColorCellDelegate:class{
+    
+    func updataTableViewCellHight(hight: CGFloat)
+    
+}
 class WOWBrandGoodsCell: UITableViewCell {
 
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
+    var indexPathNow:NSIndexPath!
+     weak var delegate : SVColorCellDelegate?
     
      var dataArr = Variable<[String]>([])
     
@@ -22,61 +28,54 @@ class WOWBrandGoodsCell: UITableViewCell {
         // Initialization code
         
         collectionView.register(UINib.nibName(String(describing: BrandGoodsCVCell.self)), forCellWithReuseIdentifier: "BrandGoodsCVCell")
-//         collectionView.collectionViewLayout = self.layout
+
+        
+        dataArr.asObservable().subscribe(onNext: { [weak self](arr) in
+            guard let strongSelf = self else{
+                return
+            }
+            let c = arr.count.getParityCellNumber()
+            strongSelf.heightConstraint.constant = (CGFloat(c) * 186.h) + (CGFloat(c - 1) * 20.h)
+        }).addDisposableTo(disposeBag)
+        
+
+        
+        
         dataArr.asObservable().bind(to: collectionView.rx.items(cellIdentifier: "BrandGoodsCVCell", cellType: BrandGoodsCVCell.self)){ [weak self](row,elememt,cell) in
             
             
-            
+//            self?.updateCollectionViewHight(hight: (self?.collectionView.collectionViewLayout.collectionViewContentSize.height)!)
             
         }.addDisposableTo(disposeBag)
         
         
-        
-        
-//        collectionView.rx.modelSelected(WOWHotStyleModel.self).subscribe(onNext: {[weak self](model) in
-//            guard let s = self else {
-//                return
-//            }
-//            
-//            
-//        }).addDisposableTo(disposeBag)
-        
         collectionView.rx.setDelegate(self).addDisposableTo(disposeBag)
-
         
     }
-    /// lazy
-//    lazy var layout:CollectionViewWaterfallLayout = {
-//        let l = CollectionViewWaterfallLayout()
-//        l.columnCount               = 2
-//        l.minimumColumnSpacing      = 15
-//        l.minimumInteritemSpacing   = 25
-//        l.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
-//        return l
-//    }()
+    func updateCollectionViewHight(hight :CGFloat)  {
+        
+        self.heightConstraint.constant = hight
+        self.delegate?.updataTableViewCellHight(hight: hight)
+        
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
 }
-//extension WOWBrandGoodsCell:CollectionViewWaterfallLayoutDelegate{
-//    func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 150.w,height: 180.h)
-//    }
-//}
+
 
 extension WOWBrandGoodsCell:UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150.w,height: 180.h)
+        return CGSize(width: 160.w,height: 186.h)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+        return 20.h
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-         return 25
+        return 5.w
     }
 }

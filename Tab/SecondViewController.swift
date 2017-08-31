@@ -13,14 +13,18 @@ import RxCocoa
 import Alamofire
 import ObjectMapper
 
-
+struct Section_Module {
+    let sectionTitle:String?
+    
+    
+}
 
 struct Module {
     let des:String?
     let img:String?
     
     let img1:String?
-//    let img2:String = ""
+
     
 }
 extension Int {
@@ -103,84 +107,61 @@ class SecondViewController: UIViewController {
         
         
         
-        
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
-        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        
+        self.arr.value.append(SectionModel.init(model: "1", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "2222222", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "3333333", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "4444444", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "555555", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
+//        self.arr.value.append(SectionModel.init(model: "0", items: [Module.init(des: "6666666", img: "https://img.wowdsgn.com/page/banners/73a2b371-5888-4906-a990-25e47f708cab_2dimension_904x603.jpg", img1: nil)]))
         arr.asObservable().bind(to: tableView.rx.items(dataSource: dataSource)).addDisposableTo(disposeBag)
         
-        dataSource.configureCell = { [unowned self](_ , tableView , indexPath , element) in
+        
+        
+        
+        dataSource.configureCell = { [unowned self](data_source , tableView , indexPath , element) in
 
             
-//            if indexPath.section == 0 {
+         let s =     data_source.sectionModels[indexPath.section]
+            print(s.model)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "WOWBrandGoodsCell") as! WOWBrandGoodsCell
             
-                let cell = tableView.dequeueReusableCell(withIdentifier: "WOWTwoDesLbCell") as! WOWTwoDesLbCell
             
-            
-//                cell.dataArr.value =  ["1",
-//                                       "2",
-//                                       "3",
-//                                       "1",
-//                                       "2",
-//                                       "3"]
-//                let c = cell.dataArr.value.count.getParityCellNumber()
-//            
-//                cell.heightConstraint.constant = (CGFloat(c) * 180.h) + CGFloat((c - 1) * 15)
-//                cell.heightConstraint.constant = 100
-            
-//                cell.dataStoryArr = [
-//                    StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
-//                    StoryModel.init(contentType: 1, content: "还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开"),
-//                    StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
-//                    StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
-//                    StoryModel.init(contentType: 1, content: "我如果爱你——\r\n　　绝不像攀援的凌霄花，\r\n　　借你的高枝炫耀自己：\r\n　　我如果爱你——\r\n　　绝不学痴情的鸟儿，\r\n　　为绿荫重复单调的歌曲；\r\n　　也不止像泉源，\r\n　　常年送来清凉的慰籍；\r\n　　也不止像险峰，增加你的高度，衬托你的威仪。\r\n　　甚至日光。\r\n　　甚至春雨。\r\n　　不，这些都还不够！\r\n　　我必须是你近旁\r\n\r\n　　我们共享雾霭流岚、虹霓"),
-//                    StoryModel.init(contentType: 1, content: "你知道我一直很乖")]
-//                cell.delegate = self
+                cell.dataArr.value =  ["1",
+                                       "2",
+                                       "3",
+                                       "1",
+                                       "2",
+                                       "3"]
                 return cell
             
-            
-//         }
-//            else {
-            
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "BrandHostCell") as! BrandHostCell
-            
 
-//
-//            cell.dataStoryArr = [
-//                                 StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
-//                                 StoryModel.init(contentType: 1, content: "还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开还有什么能够盛开"),
-//                                 StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
-//                                 StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
-//                                 StoryModel.init(contentType: 2, content: "https://img.wowdsgn.com/page/banners/1a18d4d1-f599-4d00-8d2d-c7c0e33b6d72_2dimension_1248x828.jpg"),
-//                                 StoryModel.init(contentType: 1, content: "你知道我一直很乖")]
-//                return cell
-//            }
 
             
         }
+        
+        
+        
      // 点击事件
         tableView.rx
             .itemSelected
@@ -300,7 +281,7 @@ class SecondViewController: UIViewController {
     }
 }
 
-extension SecondViewController: UITableViewDelegate,BrandDelegate,TVDelegate ,T_TextDelegate,BrandStoryDelegate{
+extension SecondViewController: UITableViewDelegate,BrandDelegate,TVDelegate ,T_TextDelegate,BrandStoryDelegate,SVColorCellDelegate{
     func heightChange() {
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
@@ -327,4 +308,13 @@ extension SecondViewController: UITableViewDelegate,BrandDelegate,TVDelegate ,T_
     
         tableView.reloadData()
     }
+    func updataTableViewCellHight(hight: CGFloat){
+        
+//        guard self.cellHightDic[indexPath.section] == hight else{
+//            self.cellHightDic[indexPath.section] = hight
+            tableView.reloadData()
+//            return
+//        }
+    }
+    
 }

@@ -295,3 +295,464 @@ struct SpeakerListViewModel {
         Speaker(name: "Scott Gardner", twitterHandle: "@scotteg")
         ])
 }
+class WOWProductCommentModel: WOWBaseModel, Mappable{
+    var nickName                : String?
+    var avatar                  : String?
+    var comments                : String?
+    var commentImgs             : [String]?
+    var specAttributes          : [String]?
+    var isReplyed               : Bool?
+    var employeeRealName        : String?
+    var replyContent            : String?
+    var publishTimeFormat       : String?
+    var timeStamp               : String?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        nickName            <- map["nickName"]
+        avatar              <- map["avatar"]
+        comments            <- map["comments"]
+        commentImgs         <- map["commentImgs"]
+        specAttributes      <- map["specAttributes"]
+        isReplyed           <- map["isReplyed"]
+        employeeRealName    <- map["employeeRealName"]
+        replyContent        <- map["replyContent"]
+        publishTimeFormat   <- map["publishTimeFormat"]
+        timeStamp           <- map["timeStamp"]
+    }
+    
+}
+/*--------------*/
+class WOWPrizesNameModel: WOWBaseModel,Mappable {
+    
+    var  prizeName : String?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        
+        prizeName                          <- map["prizeName"]
+
+    }
+
+}
+class WOWCertificationsModel: WOWBaseModel,Mappable {
+    
+    var  certImageUrl : String?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        
+        certImageUrl                          <- map["certImageUrl"]
+        
+    }
+    
+}
+class WOWSizeImagesModel: WOWBaseModel,Mappable {
+    
+    var  title      : String?
+    var  imageUrl   : String?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        
+        title                               <- map["title"]
+        imageUrl                            <- map["imageUrl"]
+    }
+    
+}
+
+class WOWIntroductionsModel: WOWBaseModel,Mappable {
+    
+    var  content        : String?
+    var  type           : Int?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        
+        content                                 <- map["content"]
+        type                                    <- map["type"]
+    }
+    
+}
+class WOWNewProductInfoModel: WOWBaseModel,Mappable{
+    
+    var prizes                              : [WOWPrizesNameModel]?
+    var certifications                      : [WOWCertificationsModel]?
+    var sizeImages                          : [WOWSizeImagesModel]?
+    var introductions                       : [WOWIntroductionsModel]?
+
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        prizes                          <- map["prizes"]
+        certifications                  <- map["certifications"]
+        sizeImages                      <- map["sizeImages"]
+        introductions                   <- map["introductions"]
+ 
+    }
+}
+
+/*--------------*/
+class WOWProductModel: NSObject,Mappable{
+    
+    
+    var productId             : Int?
+    var primaryImgs           : Array<String>?
+    var productName           : String?
+    var productTitle          : String?
+    var sellPrice             : Double?
+    var originalprice         : Double?
+    var sellingPoint          : String?
+    var brandCname            : String?
+    var brandId               : Int?
+    var brandLogoImg          : String?
+    var designerId            : Int?
+    var designerName          : String?
+    var designerPhoto         : String?
+    var detailDescription     : String?
+    var productParameter      : [WOWParameter]?
+    var productImg            : String?
+    var secondaryImgs         : [WOWProductPicTextModel]?
+    
+    var productStatus         : Int?
+    var sings                 : [WOWProductSings]?
+    dynamic var timeoutSeconds : Int = 0
+    var favorite              : Bool?
+    var discount              : String?
+    var productStock          : Int?
+    //商品限购信息
+    
+    var limitTag                    : String?
+    
+    //商品详情中用到
+    var length                      : NSNumber?
+    var width                       : NSNumber?
+    var height                      : NSNumber?
+    var netWeight                   : NSNumber?
+    var attributes                  : [WOWSerialAttributeModel]?
+    var availableStock              : Int?
+    var hasStock                    : Bool?
+    var productQty                  : Int?
+    var isOversea                   : Bool? //是否海购,是-true,否-false
+    var logisticsMode               : Int?  //1-海外直邮，2-保税区直邮
+    var originCountry               : String?   //国家名字
+    var originCountryId             : Int?      //国家id
+    /******************新版商品详情***********************/
+    var productImgs                 : [WOWProductSkuModel]?     //可滑动sku图片列表
+    var designerInfo                : WOWDesignerInfoModel?
+    var brandInfo                   : WOWBrandInfoModel?
+    var mainlyForBrand              : Bool?
+    
+    override init() {
+        super.init()
+    }
+    
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        
+        
+        /*************************新版Map***********************/
+        productId               <- map["productId"]
+        productName             <- map["productTitle"]
+        productTitle            <- map["productTitle"]
+        
+        sellPrice               <- map["sellPrice"]
+        originalprice           <- map["originalPrice"]
+        sellingPoint            <- map["sellingPoint"]
+        brandCname              <- map["brandCname"]
+        brandId                 <- map["brandId"]
+        brandLogoImg            <- map["brandLogoImg"]
+        designerName            <- map["designerName"]
+        designerId              <- map["designerId"]
+        designerPhoto           <- map["designerPhoto"]
+        detailDescription       <- map["detailDescription"]
+        productParameter        <- map["parameters"]
+        productImg              <- map["productImg"]
+                secondaryImgs           <- map["secondaryImgs"]
+        
+        productStatus           <- map["productStatus"]
+        sings                   <- map["signs"]
+        timeoutSeconds          <- map["timeoutSeconds"]
+        
+        productStock            <- map["productStock"]
+        
+        favorite                <- map["favorite"]
+        
+        length                      <- map["length"]
+        width                       <- map["width"]
+        height                      <- map["height"]
+        netWeight                   <- map["netWeight"]
+        attributes                  <- map["attributes"]
+        availableStock              <- map["availableStock"]
+        hasStock                    <- map["hasStock"]
+        
+        isOversea                   <- map["isOversea"]
+        logisticsMode               <- map["logisticsMode"]
+        originCountry               <- map["originCountry"]
+        originCountryId             <- map["originCountryId"]
+        productImgs                 <- map["productImgs"]
+        designerInfo                <- map["designerInfo"]
+        brandInfo                   <- map["brandInfo"]
+        mainlyForBrand              <- map["mainlyForBrand"]
+    }
+    
+    /// 商品列表瀑布流需要用的高度
+    var cellHeight:CGFloat = 0
+    func calCellHeight(){
+        //        let s = self.productShortDes ?? ""
+        //        var height = s.heightWithConstrainedWidth((MGScreenWidth - CGFloat(3)) / CGFloat(2) - 30, font: UIFont.systemScaleFontSize(13))
+        //        height = height > 18 ? 30 : 18
+        //        self.cellHeight = 20 + 5 + 14 + height + 6 + WOWGoodsSmallCell.itemWidth
+    }
+    
+}
+class WOWDesignerInfoModel: WOWBaseModel,Mappable{
+    var designerId                 : Int?
+    var designerName               : String?
+    var designerLogoImg            : String?
+    var designerDesc               : String?
+    var country                 : String?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        designerId                 <- map["id"]
+        designerName               <- map["designerName"]
+        designerLogoImg            <- map["designerLogoImg"]
+        designerDesc               <- map["designerDesc"]
+        country                 <- map["country"]
+    }
+}
+
+
+
+
+
+class WOWBrandInfoModel: WOWBaseModel,Mappable{
+    var brandId                 : Int?
+    var brandName               : String?
+    var brandLogoImg            : String?
+    var brandDesc               : String?
+    var country                 : String?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        brandId                 <- map["id"]
+        brandName               <- map["brandName"]
+        brandLogoImg            <- map["brandLogoImg"]
+        brandDesc               <- map["brandDesc"]
+        country                 <- map["country"]
+    }
+}
+class WOWProductSings: WOWBaseModel,Mappable {
+    
+    var id                  : Int?
+    var desc                : String?
+    var extra               : String?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        
+        id              <- map["id"]
+        desc            <- map["desc"]
+        extra           <- map["extra"]
+        
+    }
+    
+}
+class WOWProductPicTextModel:WOWBaseModel,Mappable {
+    var image  :String?
+    var text    :String?
+    var imageAspect:CGFloat = 0
+    
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        image <- map["url"]
+        text  <- map["desc"]
+        if imageAspect == 0 {
+            imageAspect = CGFloat(WOWArrayAddStr.get_imageAspect(str: image ?? ""))// 拿到图片的宽高比,
+            if imageAspect == 0 {
+                calImageHeight()
+            }
+        }
+    }
+    
+    func calImageHeight(){
+        //定义NSURL对象
+        
+        let url = URL(string: image ?? "")
+        
+        if let url = url {
+            
+            DispatchQueue.global(qos: .background).async {
+                do{
+                    
+                    let data = try Data(contentsOf: url)
+                    if let image = UIImage(data: data ) {
+                        //计算原始图片的宽高比
+                        
+                        self.imageAspect = image.size.width / image.size.height
+                        //            //设置imageView宽高比约束
+                        //            //加载图片
+                        //
+                    }
+                }catch let e {
+//                    DLog(e)
+                }
+                
+            }
+            
+        }
+    }
+}
+
+
+class WOWProductSkuModel: WOWBaseModel,Mappable {
+    var productImg      : String?
+    var specDesc        : String?
+    
+    required init?( map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        productImg      <- map["productImg"]
+        specDesc        <- map["specDesc"]
+    }
+}
+
+class WOWAttributeModel: WOWBaseModel,Mappable{
+    
+    var code        :String?
+    var title       :String?
+    var value       :String?
+    var attriImage  :String?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        code        <- map["key"]
+        value       <- map["value"]
+        title       <- map["label"]
+        attriImage  <- map["pic_app"]
+    }
+}
+
+class WOWParameter: WOWBaseModel,Mappable{
+    
+    var parameterShowName        :String?
+    var parameterValue           :String?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    init(parameterShowName: String, parameterValue: String) {
+        self.parameterShowName = parameterShowName
+        self.parameterValue = parameterValue
+    }
+    
+    func mapping(map: Map) {
+        parameterShowName            <- map["parameterShowName"]
+        parameterValue               <- map["parameterValue"]
+    }
+}
+
+class WOWProductSpecModel: WOWBaseModel,Mappable {
+    var products                     : [WOWProductModel]?
+    var serialAttribute             : [WOWSerialAttributeModel]?
+    required init?(map: Map) {
+        
+        
+    }
+    
+    func mapping(map: Map) {
+        products                         <- map["products"]
+        serialAttribute             <- map["attributes"]
+    }
+}
+
+
+
+class WOWSerialAttributeModel: WOWBaseModel, Mappable {
+    var attributeId                 : Int?
+    var attributeName               : String?
+    var attributeShowName           : String?
+    var attributeValues             : Array<String>?
+    var attributeValue              : String?
+    var specName                    = [WOWSpecNameModel]()
+    
+    required init?(map: Map) {
+        
+        
+    }
+    
+    func mapping(map: Map) {
+        attributeId                   <- map["attributeId"]
+        attributeName                 <- map["attributeName"]
+        attributeShowName             <- map["attributeShowName"]
+        attributeValues               <- map["attributeValues"]
+        attributeValue                <- map["attributeValue"]
+        if let attri = attributeValues{
+            for a in attri {
+                let model = WOWSpecNameModel(specName: a, isSelect: false, isCanSelect: true)
+                specName.append(model)
+            }
+            
+        }
+    }
+    
+}
+
+
+
+
+class WOWSpecNameModel: WOWBaseModel {
+    var specName                           : String
+    var isSelect                           : Bool
+    var isCanSelect                        : Bool
+    init(specName: String, isSelect: Bool, isCanSelect: Bool) {
+        self.specName = specName
+        self.isSelect = isSelect
+        self.isCanSelect = isCanSelect
+    }
+    
+}
+
+class WOWBaseModel:NSObject {
+    
+}

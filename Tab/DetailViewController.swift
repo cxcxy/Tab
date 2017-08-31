@@ -96,6 +96,8 @@ class DetailViewController: UIViewController,UITableViewDelegate {
 //        vm.asObservable().subscribe { (model) in
 //            print(model.element?[0].title)
 //        }.addDisposableTo(disposeBag)
+        
+        
     }
     
     func refreshStatus(status:RefreshStatus)  {

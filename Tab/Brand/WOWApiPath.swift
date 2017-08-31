@@ -18,7 +18,7 @@ import Foundation
 let WOWShareUrl                         = "m.wowdsgn.com" // 正式服务器 分享地址
 //let WOWShareUrl                         = "http://10.0.60.121:7070"// 测试服务器分享地址
 
-   var BaseUrl = "http://10.0.60.121:8080/" //内网开发
+    var BaseUrl = "http://10.0.60.60:8080/" //内网开发
 
 //   let BaseUrl = "http://10.0.60.91:8080/"
 //  let BaseUrl = "https://wowdsgn.iok.la" //外网访问内网也可以的地址
@@ -61,6 +61,8 @@ let URL_TagProduct              = "v1/product/tag/products"       //标签详情
 let URL_topic                   = "v3/topic"
 let URL_topic_product           = "v2/topic/product"            //导购专题产品列表
 
+
+let URL_Product_Info            = "v1/product/informations"       // 商品新版接口
 
 //***********2.商店************
 //2.1首页

@@ -33,6 +33,9 @@ private extension UILabel {
         })
     }
 }
+
+
+
 class ViewController: UIViewController {
     let disposeBag = DisposeBag()
   
@@ -58,9 +61,25 @@ class ViewController: UIViewController {
         
 //        btnTestOne.zhw_ignoreEvent = false
         self.btnTestOne.acceptEventInterval = 3.0
-        self.btnTestOne.rx.controlEvent(UIControlEvents.touchUpInside).subscribe(onNext: { [unowned self] in
+        
+//        self.btnTestOne.rx.conTouch(.touchUpInside).subscribe { (<#Event<()>#>) in
+//            <#code#>
+//        }
+        
+        
+//        var array: Variable<[Int]> = Variable([1, 2, 3])
+//        array.asObservable().subscribe(onNext: {
+//            updatedArray in
+//            print(updatedArray)
+//        })
+//        array.value.append(4) // it will trigger `onNext` event
+        
+        self.btnTestOne.rx.controlEvent(.touchUpInside).subscribe(onNext: { [unowned self] in
             print("11111")
         }).addDisposableTo(disposeBag)
+        
+        
+//        btnTestOne.rx.controlEvent()
         
 //       _ = NotificationCenter.default.rx.notification(Notification.Name("kNotificationTestName")).takeUntil(self.rx.deallocated).subscribe(onNext: { (value) in print(value) })
         
@@ -88,7 +107,17 @@ class ViewController: UIViewController {
         observable_take()
         let viewModel = RegisterViewModel()
         
+
+        
+        
         tfName.rx.text.orEmpty.bind(to: viewModel.username).addDisposableTo(disposeBag)
+        
+        
+        
+        
+        
+        
+        
         
         // tfName 为被观察者，lbName.rx_sayHelloObserver 返回的是一个观察者， 观察tfName的行为， 然后，作出自己的行为反应
 //        tfName.rx.text.orEmpty.bind(to: lbName.rx_sayHelloObserver).addDisposableTo(disposeBag)
@@ -143,7 +172,7 @@ class ViewController: UIViewController {
 //        self.bottomView.view.frame = self.bottomView.bounds
     }
     @IBAction func clickAction(_ sender: Any) {
-        let vc = UIStoryboard.initialViewController("Main", identifier:String(describing: DetailViewController.self)) as! DetailViewController
+        let vc = UIStoryboard.initialViewController("Main", identifier:String(describing: ThreeViewController.self)) as! ThreeViewController
 
         self.navigationController?.pushViewController(vc, animated: true)
         

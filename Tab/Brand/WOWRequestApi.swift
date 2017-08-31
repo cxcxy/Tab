@@ -85,6 +85,8 @@ public enum RequestApi{
     
     case api_userFeedBack(params: [String: AnyObject])
     
+    case api_ProductInformations(groupId : Int)// 
+    
     
     //购物车相关
     case api_CartModify(shoppingCartId:Int, productQty:Int)
@@ -364,6 +366,9 @@ extension RequestApi:TargetType{
             return URL_productCommentList
         case .api_ProductGroupTop:
             return URL_ProductGroupTop
+        case .api_ProductInformations:
+            return URL_Product_Info
+            
         case .api_ProductGroupList:
             return URL_ProductGroupList
         //购物车相关
@@ -569,6 +574,7 @@ extension RequestApi:TargetType{
              .api_MessageCount,
              .api_CartBottomList,
              .api_ProductGroupTop,
+             .api_ProductInformations,
              .api_ProductGroupList,
              .api_ProductsOfCoupon,
              .Api_Screen_Main,
@@ -631,6 +637,10 @@ extension RequestApi:TargetType{
             
         case let .api_ProductGroupTop(groupId):
             params = ["groupId":groupId]
+            
+        case let .api_ProductInformations(groupId):
+            params = ["groupId":groupId]
+            
         case let .api_ProductGroupList(param):
             params = param
             
